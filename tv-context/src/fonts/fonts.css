@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Silkscreen';
+    src: url('./Silkscreen.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Concert One';
+    src: url('./ConcertOne.ttf') format('truetype');
+}
