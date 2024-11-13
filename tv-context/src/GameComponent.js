@@ -1,21 +1,21 @@
-// src/GameComponent.js
 import React, { useContext } from 'react';
 import { GameContext } from './GameProvider';
 import './fonts/fonts.css';
 
 const GameComponent = () => {
-    const { gameStatus, toggleGameStatus } = useContext(GameContext); // Acceder al contexto
+    const { gameStatus, toggleGameStatus } = useContext(GameContext);
 
     // Estilos dinámicos dependiendo del estado del juego
     const styles = {
         container: {
             backgroundColor: gameStatus === 'Dentro del juego' ? '#D8D2C2' : '#181C14',
             color: '#fff',
-            height: '100vh',
+            minHeight: '100vh',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
+            padding: '10px',
             transition: 'all 0.3s ease',
         },
         button: {
@@ -23,20 +23,22 @@ const GameComponent = () => {
             color: '#fff',
             border: 'none',
             padding: '10px 20px',
-            fontSize: '16px',
+            fontSize: '1rem', // Tamaño de fuente relativo
             cursor: 'pointer',
             borderRadius: '5px',
             marginTop: '20px',
             transition: 'all 0.3s ease',
         },
         title: {
-            fontSize: '24px',
+            fontSize: '1.5rem', // Tamaño relativo
             fontWeight: 'bold',
-            color: gameStatus === 'Dentro del juego' ? '#000' : '#fff', // Cambia a negro dentro del juego
+            color: gameStatus === 'Dentro del juego' ? '#000' : '#fff',
+            textAlign: 'center',
         },
         tv: {
-            width: '320px',
-            height: '260px',
+            width: '90%',
+            maxWidth: '320px',
+            aspectRatio: '4 / 3', // Asegura proporción
             backgroundColor: gameStatus === 'Dentro del juego' ? '#000' : '#222',
             border: '16px solid #555',
             borderRadius: '12px',
@@ -44,36 +46,36 @@ const GameComponent = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            position: 'relative',
-            marginBottom: '30px', // Espacio para la consola debajo
+            marginBottom: '20px',
         },
         screen: {
-            width: '280px',
-            height: '200px',
-            backgroundColor: gameStatus === 'Dentro del juego' ? '#D7C3F1' : '#222', // Cambiar a blanco dentro del juego
+            width: '90%',
+            height: '80%',
+            backgroundColor: gameStatus === 'Dentro del juego' ? '#D7C3F1' : '#222',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            flexDirection: 'column', // Mostrar "GAME" y el texto adicional uno debajo del otro
+            flexDirection: 'column',
             filter: gameStatus === 'Dentro del juego' ? 'none' : 'brightness(0.5)',
-            boxShadow: 'inset 0 0 2px #8C3061, 0 0 8px #522258', // Pixel style
+            boxShadow: 'inset 0 0 2px #8C3061, 0 0 8px #522258',
         },
         pixelText: {
             color: '#2E073F',
             fontFamily: 'Silkscreen, sans-serif',
-            fontSize: '30px',
+            fontSize: '1.8rem',
             letterSpacing: '4px',
-            textShadow: '0 0 5px #17153B', // Glow effect
+            textShadow: '0 0 5px #17153B',
         },
         statusText: {
-            color: gameStatus === 'Dentro del juego' ? '#2E073F' : '#fff', // Cambiar a blanco si está apagado
+            color: gameStatus === 'Dentro del juego' ? '#2E073F' : '#fff',
             fontFamily: 'Concert One, sans-serif',
-            fontSize: '12px',
+            fontSize: '0.8rem',
             letterSpacing: '2px',
             marginTop: '10px',
         },
         controls: {
-            width: '320px',
+            width: '90%',
+            maxWidth: '320px',
             height: '60px',
             backgroundColor: '#333',
             borderRadius: '12px',
@@ -83,14 +85,16 @@ const GameComponent = () => {
             boxShadow: '0 2px 5px rgba(0,0,0,0.7)',
         },
         controlKnob: {
-            width: '40px',
-            height: '40px',
+            width: '10%',
+            maxWidth: '40px',
+            aspectRatio: '1 / 1',
             backgroundColor: '#777',
             borderRadius: '50%',
             boxShadow: 'inset 0 0 5px rgba(0,0,0,0.6)',
         },
         console: {
-            width: '100px',
+            width: '25%',
+            maxWidth: '100px',
             height: '20px',
             backgroundColor: '#555',
             borderRadius: '4px',
